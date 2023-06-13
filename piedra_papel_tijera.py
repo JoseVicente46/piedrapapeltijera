@@ -20,14 +20,14 @@ def comprobarGanador(opcionJugador, opcionOrdenador):
     return 0
 
 
-print("JUEGO : Piedra, papel y tijera")
+print("Joc : Pedra, paper y tisora")
 while 1:
-    compruebaJuega = input("Quieres jugar? (s/n): ")
+    compruebaJuega = input("Vols jugar? (s/n): ")
     if 's' in compruebaJuega.lower():
         elecionOrdenador = opcionRandom()
         while True:
-            elecionJugador = input("Selecciona un movimiento ('p' para piedra / 'a' para papel / 't' para tijeras): ").lower()
-            print(f"Elección del ordenador: {elecionOrdenador}")
+            elecionJugador = input("Selecciona un moviment ('p' per a pedra / 'a' per a paper / 't' per a tisores): ").lower()
+            print(f"Eleccio del ordinador: {elecionOrdenador}")
             if 'p' in elecionJugador or 'a' in elecionJugador or 't' in elecionJugador:
                 opcionJugador = ""
                 if 'p' in elecionJugador:
@@ -37,19 +37,19 @@ while 1:
                 elif 't' in elecionJugador:
                     opcionJugador = tijeras
 
-                print(f"Elección del usuario: {opcionJugador}")
+                print(f"Eleccio del usuari: {opcionJugador}")
 
                 if comprobarGanador(opcionJugador, elecionOrdenador) == 1:
-                    print("Gana el usuario !!!")
+                    print("Gana l'usuari !!!")
                 elif comprobarGanador(opcionJugador, elecionOrdenador) == -1:
-                    print("Gana el ordenador !!!")
+                    print("Gana l'ordinador !!!")
                 elif comprobarGanador(opcionJugador, elecionOrdenador) == 0:
                     print("Empate !!!")
                 break
             else:
-                print("Entrada incorrecta. Vuelve a intentar.")
+                print("Entrada incorrecta. Torna a intentar.")
     elif 'n' in compruebaJuega.lower():
         break
     else:
-        print('Entrada incorrecta. Vuelve a intentar.')
+        print('Entrada incorrecta. Torna a intentar.')
     print()
