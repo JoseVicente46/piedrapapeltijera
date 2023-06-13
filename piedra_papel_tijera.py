@@ -24,10 +24,28 @@ print("Joc : Pedra, paper y tisora")
 while 1:
     compruebaJuega = input("Vols jugar? (s/n): ")
     if 's' in compruebaJuega.lower():
-        elecionOrdenador = opcionRandom()
+        jugarConOtro = input("Quieres jugar con el ordenador (o) o con otro jugador (j)")
+        if 'o' in jugarConOtro:
+            elecionOrdenador = opcionRandom()
         while True:
+            if 'j' in jugarConOtro:
+                print("No mires jugador 2")
             elecionJugador = input("Selecciona un moviment ('p' per a pedra / 'a' per a paper / 't' per a tisores): ").lower()
-            print(f"Eleccio del ordinador: {elecionOrdenador}")
+
+            if 'j' in jugarConOtro:
+                print("No mires jugador 1")
+                elecionOrdenador = input("Selecciona un moviment ('p' per a pedra / 'a' per a paper / 't' per a tisores): ").lower()
+                if 'p' in elecionOrdenador or 'a' in elecionOrdenador or 't' in elecionOrdenador:
+                    if 'p' in elecionOrdenador:
+                        elecionOrdenador = piedra
+                    elif 'a' in elecionOrdenador:
+                        elecionOrdenador = papel
+                    elif 't' in elecionOrdenador:
+                        elecionOrdenador = tijeras
+                else:
+                    print("Entrada incorrecta. Torna a intentar.")
+                    break
+
             if 'p' in elecionJugador or 'a' in elecionJugador or 't' in elecionJugador:
                 opcionJugador = ""
                 if 'p' in elecionJugador:
@@ -38,11 +56,12 @@ while 1:
                     opcionJugador = tijeras
 
                 print(f"Eleccio del usuari: {opcionJugador}")
+                print(f"Eleccio del ordinador/usuari2: {elecionOrdenador}")
 
                 if comprobarGanador(opcionJugador, elecionOrdenador) == 1:
-                    print("Gana l'usuari !!!")
+                    print("Gana l'usuari1 !!!")
                 elif comprobarGanador(opcionJugador, elecionOrdenador) == -1:
-                    print("Gana l'ordinador !!!")
+                    print("Gana l'ordinador/usuari2 !!!")
                 elif comprobarGanador(opcionJugador, elecionOrdenador) == 0:
                     print("Empate !!!")
                 break
