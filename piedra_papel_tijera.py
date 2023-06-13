@@ -3,9 +3,10 @@ import random
 piedra = 'piedra'
 papel = 'papel'
 tijeras = 'tijera'
-opciones = [piedra, papel, tijeras]
-ganaJugador = [[papel, piedra], [tijeras, papel], [piedra, tijeras]]
-ganaOrdenador = [[piedra, papel], [papel, tijeras], [tijeras, piedra]]
+spok = "spok"
+opciones = [piedra, papel, tijeras, spok]
+ganaJugador = [[papel, piedra], [tijeras, papel], [piedra, tijeras], [spok, papel], [tijeras, spok], [piedra, spok]]
+ganaOrdenador = [[piedra, papel], [papel, tijeras], [tijeras, piedra], [papel, spok], [spok, tijeras], [spok, piedra]]
 
 
 def opcionRandom():
@@ -28,9 +29,9 @@ while 1:
         elecionOrdenador = opcionRandom()
         while True:
             elecionJugador = input(
-                "Selecciona un moviment ('p' per a pedra / 'a' per a paper / 't' per a tisores): ").lower()
+                "Selecciona un moviment ('p' per a pedra / 'a' per a paper / 't' per a tisores / 's' per a spok): ").lower()
             print(f"Eleccio del ordinador: {elecionOrdenador}")
-            if 'p' in elecionJugador or 'a' in elecionJugador or 't' in elecionJugador:
+            if 'p' in elecionJugador or 'a' in elecionJugador or 't' in elecionJugador or 's' in elecionJugador:
                 opcionJugador = ""
                 if 'p' in elecionJugador:
                     opcionJugador = piedra
@@ -38,6 +39,8 @@ while 1:
                     opcionJugador = papel
                 elif 't' in elecionJugador:
                     opcionJugador = tijeras
+                elif 's' in elecionJugador:
+                    opcionJugador = spok
 
                 print(f"Eleccio del usuari: {opcionJugador}")
 
