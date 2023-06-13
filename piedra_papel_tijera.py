@@ -20,13 +20,15 @@ def comprobarGanador(opcionJugador, opcionOrdenador):
     return 0
 
 
+vectorSi = ["Si", "s", "S", "SI", "Y", "sí", "SÍ", "si"]
 print("Joc : Pedra, paper y tisora")
 while 1:
-    compruebaJuega = input("Vols jugar? (s/n): ")
-    if 's' in compruebaJuega.lower():
+    compruebaJuega = input("Vols jugar? (si/n): ")
+    if compruebaJuega in vectorSi:
         elecionOrdenador = opcionRandom()
         while True:
-            elecionJugador = input("Selecciona un moviment ('p' per a pedra / 'a' per a paper / 't' per a tisores): ").lower()
+            elecionJugador = input(
+                "Selecciona un moviment ('p' per a pedra / 'a' per a paper / 't' per a tisores): ").lower()
             print(f"Eleccio del ordinador: {elecionOrdenador}")
             if 'p' in elecionJugador or 'a' in elecionJugador or 't' in elecionJugador:
                 opcionJugador = ""
